@@ -10,5 +10,11 @@ pipeline {
       }
     }
 
+    stage('SonarQube Quality Gate Check') {
+      steps {
+        waitForQualityGate(credentialsId: 'sonarqube', abortPipeline: true)
+      }
+    }
+
   }
 }
